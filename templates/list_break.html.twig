@@ -1,0 +1,18 @@
+{% extends get_admin_template('base_list_field', admin.code) %}
+
+{% block field %}
+    {% set collapse = field_description.option('collapse') %}
+
+    {% if value is not null and value|length > 0 %}
+        <div class="sonata-readmore"
+            data-readmore-height="{{ collapse.height|default(80) }}"
+            data-readmore-more="{{ collapse.more|default('read_more')|trans({}, admin.translationdomain) }}"
+            data-readmore-less="{{ collapse.less|default('read_less')|trans({}, admin.translationdomain) }}">
+            <ul style="padding-left: 20px;">
+                {% for val in value %}
+                    <li>{{ val }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endblock %}

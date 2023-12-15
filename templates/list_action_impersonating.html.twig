@@ -1,0 +1,12 @@
+{% extends '@SonataAdmin/CRUD/base_list_field.html.twig' %}
+
+{% block field %}
+    {% if app.user is not null and app.user.userIdentifier != object.userIdentifier %}
+        <a href="{{ impersonation_url(object.userIdentifier) }}" title="Impersonating" target="_blank">
+            <i class="glyphicon glyphicon-user"></i>
+            <i class="glyphicon glyphicon-log-in"></i>
+        </a>
+    {% else %}
+        -
+    {% endif %}
+{% endblock %}

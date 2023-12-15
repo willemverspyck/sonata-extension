@@ -1,0 +1,48 @@
+{
+    "name": "spyck/sonata-extension",
+    "description": "Sonata Extension for Symfony",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Willem Verspyck",
+            "email": "willemverspyck@outlook.com",
+            "homepage": "https://verspyck.com",
+            "role": "Developer"
+        }
+    ],
+    "keywords": [
+        "sonata",
+        "extension",
+        "php"
+    ],
+    "homepage": "https://github.com/willemverspyck/sonata-extension",
+    "type": "library",
+    "require": {
+        "php": "^8.1",
+        "sonata-project/admin-bundle": "^4",
+        "sonata-project/doctrine-orm-admin-bundle": "^4",
+        "sonata-project/form-extensions": "^2",
+        "symfony/dependency-injection": "^6|^7",
+        "symfony/form": "^6|^7",
+        "symfony/http-foundation": "^6|^7",
+        "symfony/http-kernel": "^6|^7",
+        "symfony/options-resolver": "^6|^7",
+        "symfony/security-core": "^6|^7"
+    },
+    "require-dev": {
+        "escapestudios/symfony2-coding-standard": "^3",
+        "friendsofphp/php-cs-fixer": "^3",
+        "phpunit/phpunit": "^10",
+        "squizlabs/php_codesniffer": "^3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Spyck\\SonataExtension\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Spyck\\SonataExtension\\Tests\\": "tests/"
+        }
+    }
+}

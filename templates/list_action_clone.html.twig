@@ -1,0 +1,6 @@
+{% if admin.hasAccess('create', object) and admin.hasRoute('clone') %}
+    <a href="{{ admin.generateObjectUrl('clone', object) }}" class="btn btn-sm btn-default" title="{{ 'Clone'|trans({}, admin.translationdomain) }}">
+        <i class="fa fa-clone"></i>
+        {{ 'Clone'|trans({}, admin.translationdomain) }}
+    </a>
+{% endif %}

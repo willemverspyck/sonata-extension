@@ -1,0 +1,31 @@
+{% set name = field_description.name %}
+{% set data = attribute(object, name) %}
+
+{% if options is not defined %}
+    {% set options = [] %}
+{% endif %}
+
+{% if data is iterable %}
+    {% if data|length > 0 %}
+        {% for value in data %}
+            {% if loop.index > 1 %}<br />{% endif %}
+            {{ _self.getValue(value, options) }}
+        {% endfor %}
+    {% else %}
+        -
+    {% endif %}
+{% else %}
+    {% if data is null %}
+        -
+    {% else %}
+        {{ _self.getValue(data, options) }}
+    {% endif %}
+{% endif %}
+
+{% macro getValue(value, options) %}
+    {% if value in options|keys %}
+        {{ attribute(options, value) }}
+    {% else %}
+        {{ value }}
+    {% endif %}
+{% endmacro %}
