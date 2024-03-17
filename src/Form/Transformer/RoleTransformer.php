@@ -18,7 +18,7 @@ final class RoleTransformer implements DataTransformerInterface
     {
     }
 
-    public function setRoles(array $roles = null): void
+    public function setRoles(?array $roles = null): void
     {
         $this->roles = null === $roles ? [] : $roles;
     }
