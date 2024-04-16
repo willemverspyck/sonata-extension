@@ -6,9 +6,15 @@ namespace Spyck\SonataExtension\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin as SonataAbstractAdmin;
 use Sonata\AdminBundle\Route\RouteCollectionInterface;
+use Spyck\SonataExtension\Security\SecurityInterface;
 
-abstract class AbstractAdmin extends SonataAbstractAdmin
+abstract class AbstractAdmin extends SonataAbstractAdmin implements SecurityInterface
 {
+    public function getRole(): ?string
+    {
+        return null;
+    }
+
     protected function getAddRoutes(): iterable
     {
         return [];
