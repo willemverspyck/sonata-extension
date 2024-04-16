@@ -55,7 +55,7 @@ final class RoleType extends AbstractType
 
             $baseRole = $admin->getSecurityHandler()->getBaseRole($admin);
 
-            foreach (array_keys($admin->getSecurityInformation()) as $role) {
+            foreach (['EDIT', 'LIST', 'CREATE', 'VIEW', 'DELETE', 'EXPORT', 'ALL'] as $role) {
                 $data[] = sprintf($baseRole, $role);
             }
         }
