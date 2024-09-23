@@ -73,8 +73,14 @@ final class AutocompleteUtility
         }
     }
 
-    private static function getKeywords(string $data): array
+    public static function getKeywords(string $data): array
     {
-        return array_filter(str_getcsv($data, ' '));
+        $keywords = preg_split('/\W/i', $data);
+
+        if (false === $keywords) {
+            return [];
+        }
+
+        return array_filter($keywords);
     }
 }
