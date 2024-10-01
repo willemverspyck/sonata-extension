@@ -75,12 +75,12 @@ final class AutocompleteUtility
 
     public static function getKeywords(string $data): array
     {
-        $keywords = preg_split('/\W/i', $data);
+        $keywords = preg_split('/\s{1,}|\t{1,}/is', $data);
 
         if (false === $keywords) {
             return [];
         }
 
-        return array_filter($keywords);
+        return $keywords;
     }
 }
