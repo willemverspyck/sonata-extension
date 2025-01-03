@@ -17,7 +17,7 @@ final class RoleSecurityHandler implements SecurityHandlerInterface
     {
     }
 
-    public function isGranted(AdminInterface $admin, $role, object $object = null): bool
+    public function isGranted(AdminInterface $admin, $role, ?object $object = null): bool
     {
         if (false === str_starts_with($role, 'ROLE_')) {
             $role = sprintf($this->getBaseRole($admin), $role);
