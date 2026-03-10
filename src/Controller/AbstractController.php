@@ -18,7 +18,7 @@ abstract class AbstractController extends CRUDController
      */
     public function cloneAction(Request $request): Response
     {
-        $id = $request->get($this->admin->getIdParameter());
+        $id = $request->query->get($this->admin->getIdParameter());
         $object = $this->admin->getObject($id);
 
         $this->assertObjectExists($request);
