@@ -73,14 +73,18 @@ final class AutocompleteUtility
         }
     }
 
-    public static function getKeywords(string $data): array
+    public static function getKeywords(string $data, ?int $length = null): array
     {
-        $keywords = preg_split('/\s{1,}|\t{1,}/is', $data);
+        $keywords = preg_split('/\s+/is', $data);
 
         if (false === $keywords) {
             return [];
         }
 
-        return $keywords;
+        if (null === $length) {
+            return $keywords;
+        }
+
+        return array_values(array_filter($keywords, fn (string $keyword) => mb_strlen($keyword) >= $length));
     }
 }
